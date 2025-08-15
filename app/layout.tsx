@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Wix_Madefor_Text } from "next/font/google";
+import ClientSessionProvider from "@/components/ClientSessionProvider";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const wixText = Wix_Madefor_Text({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+/* const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
+}); */
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`bg-slate-100 ${wixText.className} antialiased`}>
+        <ClientSessionProvider>{children}</ClientSessionProvider>
       </body>
     </html>
   );
